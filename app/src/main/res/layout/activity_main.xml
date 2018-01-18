@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.stucom.alu2015018.p1_menuprincipal.main.MainActivity">
+
+    <Button
+        android:id="@+id/btn_enCuantoA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="84dp"
+        android:text="En cuanto a..."
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="231dp" />
+
+    <Button
+        android:id="@+id/btn_ranking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="75dp"
+        android:text="Ranking"
+        tools:layout_editor_absoluteX="219dp"
+        tools:layout_editor_absoluteY="231dp"
+        android:layout_above="@+id/btn_enCuantoA"
+        android:layout_alignStart="@+id/btn_jugar"
+        android:layout_marginBottom="125dp" />
+
+    <Button
+        android:id="@+id/btn_jugar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Jugar"
+        tools:layout_editor_absoluteX="219dp"
+        tools:layout_editor_absoluteY="331dp"
+        android:layout_above="@+id/btn_ranking"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btn_ajustes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ajustes"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="331dp"
+        android:layout_above="@+id/btn_enCuantoA"
+        android:layout_alignStart="@+id/btn_ranking"
+        android:layout_marginBottom="34dp" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:text="Practica Android"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="57dp" />
+
+</RelativeLayout>
