@@ -77,16 +77,13 @@ public class AjustesActivity extends AppCompatActivity
 
                     try {
 
-                        JSONObject jsonObject = new JSONObject();
-                        jsonObject.put("firstname", firstName);
-                        jsonObject.put("lastname", sndName);
-                        jsonObject.put("email", playerEmail);
+                        String text = "firstname=" + firstName + "&lastname=" + sndName + "&email=" + playerEmail +"";
 
-                        new UserSettingPostTask(AjustesActivity.this).execute(userId, jsonObject.toString());
+                        new UserSettingPostTask(AjustesActivity.this).execute(userId, text);
 
                         Toast.makeText(getApplicationContext(), "Usuario actualizado", Toast.LENGTH_SHORT).show();
 
-                    } catch (JSONException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
 

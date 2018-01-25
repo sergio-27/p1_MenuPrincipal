@@ -56,7 +56,7 @@ public class UserSettingPostTask extends AsyncTask<String, Void, String>{
             String apiKey = ref.getContext().getResources().getString(R.string.apiKey);
 
             String urlUser = ref.getContext().getResources().getString(R.string.updateUserName, userId, apiKey);
-            Log.d("sergio", "POST URL" + urlUser);
+            Log.d("sergio", "POST URL: " + urlUser);
 
             //obtenemos el json decodificado
 
@@ -66,7 +66,7 @@ public class UserSettingPostTask extends AsyncTask<String, Void, String>{
             httpURLConnection = (HttpURLConnection) new URL(urlUser).openConnection();
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setRequestMethod("POST");
-            httpURLConnection.addRequestProperty("Content-Type", "application/json");
+            httpURLConnection.addRequestProperty("Content-Type", "text/plain");
             httpURLConnection.addRequestProperty("Accept","application/json");
 
             httpURLConnection.connect();
