@@ -84,6 +84,8 @@ public class AjustesActivity extends AppCompatActivity
 
                         new UserSettingPostTask(AjustesActivity.this).execute(userId, jsonObject.toString());
 
+                        Toast.makeText(getApplicationContext(), "Usuario actualizado", Toast.LENGTH_SHORT).show();
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
