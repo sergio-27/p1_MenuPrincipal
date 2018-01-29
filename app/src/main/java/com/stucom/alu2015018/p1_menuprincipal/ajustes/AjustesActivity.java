@@ -82,7 +82,7 @@ public class AjustesActivity extends AppCompatActivity
 //                        jsonObject.put("lastname", sndName);
 //                        jsonObject.put("email", playerEmail);
 
-                        String text = "key=48d256f9583d5e3a1932242f152fcbf" +  "&firstname=" + firstName; //+ "&lastname=" + sndName + "&email=" + playerEmail;
+                        String text = "key=48d256f9583d5e3a1932242f152fcbf6&firstname=" + firstName; //+ "&lastname=" + sndName + "&email=" + playerEmail;
 
                         new UserSettingPostTask(AjustesActivity.this).execute(userId, text);
 
