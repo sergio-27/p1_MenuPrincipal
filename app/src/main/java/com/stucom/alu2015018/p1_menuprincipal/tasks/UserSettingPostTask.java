@@ -1,21 +1,12 @@
 package com.stucom.alu2015018.p1_menuprincipal.tasks;
 
+
 import android.content.Context;
 import android.os.AsyncTask;
-import android.os.HandlerThread;
-import android.renderscript.ScriptGroup;
 import android.util.Log;
-
 import com.stucom.alu2015018.p1_menuprincipal.R;
-
 import org.json.JSONObject;
-
 import java.io.DataOutputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -55,9 +46,9 @@ public class UserSettingPostTask extends AsyncTask<String, Void, String>{
 
             String apiKey = ref.getContext().getResources().getString(R.string.apiKey);
 
-            String urlUser = ref.getContext().getResources().getString(R.string.updateUserName, userId);
+            String urlUser = ref.getContext().getResources().getString(R.string.updateUserName);
             Log.d("sergio", "POST URL: " + urlUser);
-
+            String userURL = ref.getContext().getResources().getString(R.string.updateUserName, userId);
             //obtenemos el json decodificado
 
 
