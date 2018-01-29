@@ -4,7 +4,7 @@
     <string name="searchGameURL" translatable="false">http://stucom.flx.cat/game/api/game/</string>
     <string name="searchGameDetails" translatable="false">http://stucom.flx.cat/game/api/game/%s</string>
     <string name="searchUserRanking" translatable="false">http://stucom.flx.cat/game/api/user/%s</string>
-    <string name="updateUserName" translatable="false">http://stucom.flx.cat/game/api/user/%s?key=%s</string>
+    <string name="updateUserName" translatable="false">http://stucom.flx.cat/game/api/user/%s</string>
     <string name="chooseGameText">Escoge un juego.</string>
     <string name="emptyGameAdapter">No hay elementos</string>
     <string name="txtButtonPhoto">Tomar Foto</string>

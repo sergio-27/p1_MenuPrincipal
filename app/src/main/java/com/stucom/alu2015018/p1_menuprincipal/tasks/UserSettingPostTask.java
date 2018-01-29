@@ -55,7 +55,7 @@ public class UserSettingPostTask extends AsyncTask<String, Void, String>{
 
             String apiKey = ref.getContext().getResources().getString(R.string.apiKey);
 
-            String urlUser = ref.getContext().getResources().getString(R.string.updateUserName, userId, apiKey);
+            String urlUser = ref.getContext().getResources().getString(R.string.updateUserName, userId);
             Log.d("sergio", "POST URL: " + urlUser);
 
             //obtenemos el json decodificado
