@@ -2,13 +2,11 @@ package com.stucom.alu2015018.p1_menuprincipal.tasks;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.google.gson.Gson;
 import com.stucom.alu2015018.p1_menuprincipal.R;
-import com.stucom.alu2015018.p1_menuprincipal.game.Game;
-import com.stucom.alu2015018.p1_menuprincipal.game.GameRanking;
-import com.stucom.alu2015018.p1_menuprincipal.game.GameRankingList;
+import com.stucom.alu2015018.p1_menuprincipal.gamep1.Game;
+import com.stucom.alu2015018.p1_menuprincipal.gamep1.GameRankingList;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;

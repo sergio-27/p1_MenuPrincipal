@@ -1,7 +1,7 @@
 package com.stucom.alu2015018.p1_menuprincipal.user;
 
 import com.google.gson.annotations.SerializedName;
-import com.stucom.alu2015018.p1_menuprincipal.game.Game;
+import com.stucom.alu2015018.p1_menuprincipal.gamep1.Game;
 
 /**
  * Created by alu2015018 on 09/01/2018.

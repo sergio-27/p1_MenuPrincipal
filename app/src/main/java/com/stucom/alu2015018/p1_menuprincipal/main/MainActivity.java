@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.stucom.alu2015018.p1_menuprincipal.R;
 import com.stucom.alu2015018.p1_menuprincipal.ajustes.AjustesActivity;
-import com.stucom.alu2015018.p1_menuprincipal.game.ChooseGame;
+import com.stucom.alu2015018.p1_menuprincipal.gamep1.ChooseGame;
 import com.stucom.alu2015018.p1_menuprincipal.jugar.JugarActivity;
 
 public class MainActivity extends AppCompatActivity {

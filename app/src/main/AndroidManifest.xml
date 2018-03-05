@@ -25,7 +25,7 @@
         <activity android:name=".jugar.JugarActivity" />
         <activity android:name=".ranking.RankingActivity" />
         <activity android:name=".ajustes.AjustesActivity" />
-        <activity android:name=".game.ChooseGame" />
+        <activity android:name=".gamep1.ChooseGame" />
         <activity android:name=".ranking.UserRankingDetails"></activity>
     </application>
 

@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.stucom.alu2015018.p1_menuprincipal.R;
-import com.stucom.alu2015018.p1_menuprincipal.game.GameRanking;
-import com.stucom.alu2015018.p1_menuprincipal.game.GameRankingList;
+import com.stucom.alu2015018.p1_menuprincipal.gamep1.GameRanking;
+import com.stucom.alu2015018.p1_menuprincipal.gamep1.GameRankingList;
 
 /**
  * Created by Sergio on 03/01/2018.

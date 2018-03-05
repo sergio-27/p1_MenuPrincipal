@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -18,10 +17,10 @@ import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 import com.stucom.alu2015018.p1_menuprincipal.R;
 import com.stucom.alu2015018.p1_menuprincipal.adapter.GameRankingAdapter;
-import com.stucom.alu2015018.p1_menuprincipal.game.GameList;
-import com.stucom.alu2015018.p1_menuprincipal.game.Game;
-import com.stucom.alu2015018.p1_menuprincipal.game.GameRanking;
-import com.stucom.alu2015018.p1_menuprincipal.game.GameRankingList;
+import com.stucom.alu2015018.p1_menuprincipal.gamep1.GameList;
+import com.stucom.alu2015018.p1_menuprincipal.gamep1.Game;
+import com.stucom.alu2015018.p1_menuprincipal.gamep1.GameRanking;
+import com.stucom.alu2015018.p1_menuprincipal.gamep1.GameRankingList;
 import com.stucom.alu2015018.p1_menuprincipal.tasks.SearchGameDetailsTask;
 
 

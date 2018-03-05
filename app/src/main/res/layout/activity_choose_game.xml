@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.stucom.alu2015018.p1_menuprincipal.game.ChooseGame">
+    tools:context="com.stucom.alu2015018.p1_menuprincipal.gamep1.ChooseGame">
 
     <Spinner
         android:id="@+id/spinnerGame"
