@@ -1,4 +1,4 @@
-package cat.flx.plataformes.gamep3;
+package com.stucom.alu2015018.p1_menuprincipal.gamep3;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

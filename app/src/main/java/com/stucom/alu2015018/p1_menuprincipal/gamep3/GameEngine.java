@@ -1,4 +1,4 @@
-package cat.flx.plataformes.gamep3;
+package com.stucom.alu2015018.p1_menuprincipal.gamep3;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -9,8 +9,9 @@ import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 
-import cat.flx.plataformes.R;
-import cat.flx.plataformes.characters.Bonk;
+import com.stucom.alu2015018.p1_menuprincipal.R;
+import com.stucom.alu2015018.p1_menuprincipal.characters.Bonk;
+
 
 public class GameEngine {
 
@@ -21,20 +22,35 @@ public class GameEngine {
     private Context context;
     private GameView gameView;
     private BitmapSet bitmapSet;
-    private Audio audio;
+    public Audio audio;
     private Handler handler;
     private Scene scene;
     public Bonk bonk;
     private Input input;
 
-    public Audio getAudio() { return audio; }
+    public Audio getAudio() {
+        return audio;
+    }
 
-    public Bonk getBonk() { return bonk; }
+    public Bonk getBonk() {
+        return bonk;
+    }
 
-    Context getContext() { return context; }
-    public Bitmap getBitmap(int index) { return bitmapSet.getBitmap(index); }
-    public Scene getScene() { return scene; }
-    public Input getInput() { return input; }
+    Context getContext() {
+        return context;
+    }
+
+    public Bitmap getBitmap(int index) {
+        return bitmapSet.getBitmap(index);
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public Input getInput() {
+        return input;
+    }
 
     GameEngine(Context context, GameView gameView) {
         // Initialize everything
@@ -52,19 +68,21 @@ public class GameEngine {
         scene.loadFromFile(R.raw.mini);
 
         // Create Bonk
-        bonk = new Bonk(this, 100,0);
+        bonk = new Bonk(this, 100, 0);
 
         // Program the Handler for engine refresh (physics et al)
         handler = new Handler();
         Runnable runnable = new Runnable() {
             private long last = 0;
             private int count = 0;
-            @Override public void run() {
+
+            @Override
+            public void run() {
                 handler.postDelayed(this, UPDATE_DELAY);
                 // Delta time between calls
                 if (last == 0) last = System.currentTimeMillis();
                 long now = System.currentTimeMillis();
-                int delta = (int)(now - last);
+                int delta = (int) (now - last);
                 last = now;
                 physics(delta);
                 if (++count % INVALIDATES_PER_UPDATE == 0) {
@@ -106,17 +124,15 @@ public class GameEngine {
         boolean touching = (act != MotionEvent.ACTION_UP) &&
                 (act != MotionEvent.ACTION_POINTER_UP) &&
                 (act != MotionEvent.ACTION_CANCEL);
-        int x = (int)(motionEvent.getX(i)) * 100 / screenWidth;
-        int y = (int)(motionEvent.getY(i)) * 100 / screenHeight;
+        int x = (int) (motionEvent.getX(i)) * 100 / screenWidth;
+        int y = (int) (motionEvent.getY(i)) * 100 / screenHeight;
         if ((y > 75) && (x < 40)) {
             if (!touching) input.stopLR();
             else if (x < 20) input.goLeft();            // LEFT
             else input.goRight();                       // RIGHT
-        }
-        else if ((y > 75) && (x > 80) ) {
+        } else if ((y > 75) && (x > 80)) {
             if (down) input.jump();                     // JUMP
-        }
-        else {
+        } else {
             if (down) input.pause();                    // DEAD-ZONE
         }
         return true;
@@ -127,18 +143,29 @@ public class GameEngine {
         boolean down = (keyEvent.getAction() == KeyEvent.ACTION_DOWN);
         if (!down) return true;
         switch (keyEvent.getKeyCode()) {
-            case KeyEvent.KEYCODE_Z: input.goLeft(); break;
-            case KeyEvent.KEYCODE_X: input.goRight(); break;
-            case KeyEvent.KEYCODE_M: input.jump(); audio.coin(); break;
-            case KeyEvent.KEYCODE_P: input.pause(); break;
-            default: return false;
+            case KeyEvent.KEYCODE_Z:
+                input.goLeft();
+                break;
+            case KeyEvent.KEYCODE_X:
+                input.goRight();
+                break;
+            case KeyEvent.KEYCODE_M:
+                input.jump();
+                audio.coin();
+                break;
+            case KeyEvent.KEYCODE_P:
+                input.pause();
+                break;
+            default:
+                return false;
         }
         input.setKeyboard(true);
         return true;
     }
 
-    private Paint paint, paintKeys;
+    private Paint paint, paintKeys, paintScore, paintLives, paintDead;
     private int screenWidth, screenHeight, scaledWidth;
+    public int playerScore = 0, playerLifes = 3;
     private float scale;
 
     // Perform physics on all game objects
@@ -155,6 +182,7 @@ public class GameEngine {
 
     // Update screen offsets to always have Bonk visible
     private int offsetX = 0, offsetY = 0;
+
     private void updateOffsets() {
         if (scaledWidth * SCALED_HEIGHT == 0) return;
         int x = bonk.getX();
@@ -176,6 +204,7 @@ public class GameEngine {
     // Screen redraw
     void draw(Canvas canvas) {
         if (scene == null) return;
+        //if (playerLifes == 0) return;
 
         // Create painters on first draw
         if (paint == null) {
@@ -184,6 +213,15 @@ public class GameEngine {
             paint.setTextSize(10);
             paintKeys = new Paint();
             paintKeys.setColor(Color.argb(20, 0, 0, 0));
+            paintScore = new Paint();
+            paintScore.setColor(Color.YELLOW);
+            //paint para las vidas
+            paintLives = new Paint();
+            paintLives.setTextSize(5);
+            paintLives.setColor(Color.GREEN);
+            //paint para el titulo de muerte
+            paintDead = new Paint();
+            paintDead.setColor(Color.RED);
         }
 
         // Refresh scale factor if screen has changed sizes
@@ -218,10 +256,22 @@ public class GameEngine {
         canvas.scale(scale * scaledWidth / 100, scale * SCALED_HEIGHT / 100);
         canvas.drawRect(1, 76, 19, 99, paintKeys);
         canvas.drawText("«", 8, 92, paint);
-        canvas.drawRect(21, 76, 39, 99, paintKeys);
+        canvas.drawRect(21, 76, 45, 99, paintKeys);
         canvas.drawText("»", 28, 92, paint);
         canvas.drawRect(81, 76, 99, 99, paintKeys);
         canvas.drawText("^", 88, 92, paint);
+        canvas.drawText("" + playerScore, 80, 15, paintScore);
+        canvas.drawText("Vidas: " + playerLifes, 5, 8, paintLives);
+        if (bonk.getState() == 3) {
+            canvas.drawText("Dead", 36, 15, paintDead);
+            //con la propiedad reset del bonk podemos colocar el personaje en el inicio cuando muere.
+            if (playerLifes > 0) {
+                bonk.reset(15, 15);
+                bonk.changeState(0);
+            }
+
+        }
+
     }
 
 }

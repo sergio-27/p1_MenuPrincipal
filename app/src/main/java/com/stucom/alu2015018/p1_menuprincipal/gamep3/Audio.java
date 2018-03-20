@@ -1,11 +1,12 @@
-package cat.flx.plataformes.gamep3;
+package com.stucom.alu2015018.p1_menuprincipal.gamep3;
 
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 
-import cat.flx.plataformes.R;
+import com.stucom.alu2015018.p1_menuprincipal.R;
+
 
 class Audio {
     private MediaPlayer mediaPlayer;    // media player for background music

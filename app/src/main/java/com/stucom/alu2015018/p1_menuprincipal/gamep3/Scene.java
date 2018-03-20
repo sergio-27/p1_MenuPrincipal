@@ -1,10 +1,16 @@
-package cat.flx.plataformes.gamep3;
+package com.stucom.alu2015018.p1_menuprincipal.gamep3;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.util.SparseIntArray;
 import android.widget.Toast;
+
+import com.stucom.alu2015018.p1_menuprincipal.characters.Bonk;
+import com.stucom.alu2015018.p1_menuprincipal.characters.Coin;
+import com.stucom.alu2015018.p1_menuprincipal.characters.Crab;
+import com.stucom.alu2015018.p1_menuprincipal.characters.Enemy;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,10 +19,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import cat.flx.plataformes.characters.Bonk;
-import cat.flx.plataformes.characters.Coin;
-import cat.flx.plataformes.characters.Crab;
-import cat.flx.plataformes.characters.Enemy;
 
 public class Scene {
     private GameEngine gameEngine;
@@ -135,7 +137,7 @@ public class Scene {
     public int getWaterLevel() { return WATERLEVEL; }
 
     public int getWidth() { return sceneWidth * 16; }
-    int getHeight() { return sceneHeight * 16; }
+    public int getHeight() { return sceneHeight * 16; }
 
     // Scene physics
     void physics(int delta) {
@@ -143,15 +145,33 @@ public class Scene {
         for(Coin coin : coins) coin.physics(delta);
         for(Enemy enemy : enemies) enemy.physics(delta);
         Bonk bonk = gameEngine.getBonk();
+        Rect bonkRect = bonk.getCollisionRect();
 
+        if (bonkRect == null) return;
+
+        //colision de moneda con bonk
         for (int i = coins.size() - 1; i >= 0; i--){
             Coin coin = coins.get(i);
-            if (bonk.getCollisionRect().intersect(coin.getCollisionRect())){
+            if (bonkRect.intersect(coin.getCollisionRect())){
                 gameEngine.getAudio().coin();
                 //aqui no podemos eliminar el objeto ya que estariamos modificando el tamaño de una lista que esta siendo recorrida
                 coins.remove(coin);
+                //sumamos un punto
+                gameEngine.playerScore += 10;
             }
         }
+
+        //colision bonk con enemigo
+        for (int i = enemies.size() - 1; i >= 0; i--){
+            Enemy enemy = enemies.get(i);
+            if(bonkRect.intersect(enemy.getCollisionRect())){
+                bonk.changeState(3);
+                gameEngine.getAudio().die();
+                gameEngine.playerLifes --;
+            }
+        }
+
+
 
     }
 

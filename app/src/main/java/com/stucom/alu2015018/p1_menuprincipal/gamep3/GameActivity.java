@@ -1,19 +1,32 @@
-package cat.flx.plataformes.gamep3;
+package com.stucom.alu2015018.p1_menuprincipal.gamep3;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.media.AudioManager;
 import android.os.Bundle;
+
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-public class GameActivity extends AppCompatActivity {
+import com.stucom.alu2015018.p1_menuprincipal.main.MainActivity;
+
+public class GameActivity extends Activity {
 
     GameEngine gameEngine;
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
         // FULL SCREEN GAME, NO ACTION BAR (theme also must be some "no-actionbar")
         requestWindowFeature(Window.FEATURE_NO_TITLE);

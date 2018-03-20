@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.stucom.alu2015018.p1_menuprincipal.R;
 import com.stucom.alu2015018.p1_menuprincipal.ajustes.AjustesActivity;
 import com.stucom.alu2015018.p1_menuprincipal.gamep1.ChooseGame;
-import com.stucom.alu2015018.p1_menuprincipal.jugar.JugarActivity;
+import com.stucom.alu2015018.p1_menuprincipal.gamep3.GameActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         btn_jugar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent jugar_intent = new Intent(MainActivity.this, JugarActivity.class);
+                Intent jugar_intent = new Intent(MainActivity.this, GameActivity.class);
                 startActivity(jugar_intent);
             }
         });

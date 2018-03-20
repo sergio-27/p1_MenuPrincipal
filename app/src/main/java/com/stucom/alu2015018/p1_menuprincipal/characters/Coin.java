@@ -1,6 +1,7 @@
-package cat.flx.plataformes.characters;
+package com.stucom.alu2015018.p1_menuprincipal.characters;
 
-import cat.flx.plataformes.gamep3.GameEngine;
+
+import com.stucom.alu2015018.p1_menuprincipal.gamep3.GameEngine;
 
 public class Coin extends Character {
 

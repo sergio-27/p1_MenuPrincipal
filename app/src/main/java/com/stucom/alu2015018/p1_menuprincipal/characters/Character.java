@@ -1,11 +1,12 @@
-package cat.flx.plataformes.characters;
+package com.stucom.alu2015018.p1_menuprincipal.characters;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
-import cat.flx.plataformes.gamep3.GameEngine;
+import com.stucom.alu2015018.p1_menuprincipal.gamep3.GameEngine;
+
 
 abstract public class Character {
     GameEngine gameEngine;

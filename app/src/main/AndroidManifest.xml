@@ -27,6 +27,10 @@
         <activity android:name=".ajustes.AjustesActivity" />
         <activity android:name=".gamep1.ChooseGame" />
         <activity android:name=".ranking.UserRankingDetails"></activity>
+        <activity
+            android:name=".gamep3.GameActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
